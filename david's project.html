@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Domestics - 2025</title>
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            background: linear-gradient(to right, #ff7e5f, #feb47b); /* Vibrant gradient background */
+            color: #333;
+        }
+
+        header {
+            background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent dark background */
+            color: #fff;
+            padding: 2rem 0;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        header h1 {
+            font-size: 2.8rem;
+            margin: 0;
+            letter-spacing: 2px;
+        }
+
+        header h2 {
+            font-size: 1.5rem;
+            margin-top: 0.5rem;
+            letter-spacing: 1px;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            margin: 1rem 0;
+        }
+
+        nav li {
+            margin: 0 1.5rem;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #feb47b; /* Hover color */
+        }
+
+        .hero {
+            background-image: url('hero-image.jpg'); /* Replace with your hero image */
+            background-size: cover;
+            background-position: center;
+            color: #fff;
+            text-align: center;
+            padding: 6rem 0;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .hero h2 {
+            font-size: 3.2rem;
+            margin-bottom: 1rem;
+            animation: fadeIn 2s ease-out;
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .services {
+            padding: 4rem 2rem;
+            background-color: #fff;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .services h2 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .service-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-gap: 2rem;
+        }
+
+        .service-card {
+            background-color: #fff;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 2px solid transparent;
+            background-clip: padding-box;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+            border-color: #ff7e5f; /* Active border color */
+        }
+
+        .service-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: #333;
+        }
+
+        .service-card ul {
+            text-align: left;
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .service-card li {
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+            color: #666;
+        }
+
+        .service-card img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+        }
+
+        .about {
+            padding: 4rem 2rem;
+            background-color: #f9f9f9;
+            text-align: center;
+        }
+
+        .about h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .about p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        .testimonials {
+            padding: 4rem 2rem;
+            background-color: #fff;
+            text-align: center;
+        }
+
+        .testimonial-slider {
+            max-width: 900px;
+            margin: 0 auto;
+            overflow: hidden;
+        }
+
+        .testimonial {
+            background-color: #f0f0f0;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 2rem;
+            opacity: 0;
+            animation: fadeInTestimonial 2s forwards;
+        }
+
+        @keyframes fadeInTestimonial {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .testimonial p {
+            font-style: italic;
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+        }
+
+        .testimonial span {
+            font-weight: bold;
+            color: #333;
+        }
+
+        .contact {
+            padding: 4rem 2rem;
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+        }
+
+        .contact h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact form {
+            max-width: 500px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact input[type="text"],
+        .contact input[type="email"] {
+            width: 100%;
+            padding: 1.2rem;
+            margin-bottom: 1.5rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            transition: border-color 0.3s ease;
+        }
+
+        .contact input[type="text"]:focus,
+        .contact input[type="email"]:focus {
+            border-color: #ff7e5f; /* Focus border color */
+        }
+
+        .contact button {
+            background-color: #ff7e5f;
+            color: #fff;
+            padding: 1.2rem 2.5rem;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+            font-size: 1.1rem;
+            transition: background-color 0.3s ease;
+        }
+
+        .contact button:hover {
+            background-color: #feb47b; /* Hover effect */
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 1.5rem 0;
+            margin-top: auto;
+        }
+
+        footer p {
+            margin: 0;
+            font-size: 1rem;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>The Domestic</h1>
+        <h2>Your 2025 Lifestyle Solution</h2>
+
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Services</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <h2>Experience the Future of Home Services</h2>
+            <p>Effortless living, redefined.</p>
+        </section>
+
+        <section class="services">
+            <h2>Our Services</h2>
+            <div class="service-cards">
+                <div class="service-card">
+                    <h3>Household Management</h3>
+                    <img src="https://melissaps.com/wp-content/uploads/2020/03/House-Manager_1380481274-scaled.jpg" alt="Household Management">
+                    <ul>
+                        <li>Smart Home Integration</li>
+                        <li>Proactive Maintenance</li>
+                        <li>Personalized Cleaning Plans</li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <h3>Childcare & Education</h3>
+                    <img src="https://cdn.techgyd.com/childcare.jpg" alt="Childcare & Education">
+                    <ul>
+                        <li>AI-Powered Learning Platforms</li>
+                        <li>Certified Educators</li>
+                        <li>Skill Development Programs</li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <h3>Wellness & Lifestyle</h3>
+                    <img src="https://img.freepik.com/premium-photo/people-healthy-eating-vegetarian-health-care-concept-happy-woman-with-organic-food-falling-vegetables-showing-heart-shape-symbol-gray-background_380164-94495.jpg" alt="Wellness & Lifestyle">
+                    <ul>
+                        <li>On-Demand Wellness Services</li>
+                        <li>Personalized Nutrition Plans</li>
+                        <li>Stress Management Solutions</li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <h3>Concierge Services</h3>
+                    <img src="https://th.bing.com/th/id/R.afd42b3c6a087a4e185510d471b350f1?rik=mNCvxtmcABmFIQ&pid=ImgRaw&r=0" alt="Concierge Services">
+                    <ul>
+                        <li>24/7 On-Demand Support</li>
+                        <li>Personalized Travel Planning</li>
+                        <li>Exclusive Member Benefits</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="about">
+            <h2>About The Domestic</h2>
+            <p>We are a forward-thinking company dedicated to enhancing your lifestyle through innovative and personalized services. Our commitment to excellence and customer satisfaction sets us apart.</p>
+        </section>
+
+        <section class="testimonials">
+    <h2>What Our Clients Say</h2>
+    <div class="testimonial-slider">
+        <div class="testimonial">
+            <div class="testimonial-container">
+                <img src="https://media.citizen.co.za/wp-content/uploads/2023/07/cropped-Athenkosi-Tsotsi-2023-scaled-1.jpg" alt="Client 1"> <!-- Replace with real image -->
+                <div>
+                    <p>"The Domestic has revolutionized how I manage my household. Their services are top-notch and their team is incredibly professional."</p>
+                    <span>- Chinedu David</span>
+                </div>
+            </div>
+        </div>
+        <div class="testimonial">
+            <div class="testimonial-container">
+                <img src="https://images.unsplash.com/flagged/photo-1561530822-3d8826007519?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjEyMDd9" alt="Client 2"> <!-- Replace with real image -->
+                <div>
+                    <p>"I highly recommend The Domestic. Their childcare services have been a lifesaver for my family."</p>
+                    <span>- zito innocent</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    /* Testimonial Section Styles */
+    .testimonials {
+        padding: 4rem 2rem;
+        background-color: #fff;
+        text-align: center;
+    }
+
+    .testimonial-slider {
+        max-width: 900px;
+        margin: 0 auto;
+        overflow: hidden;
+    }
+
+    .testimonial {
+        background-color: #f0f0f0;
+        padding: 2rem;
+        border-radius: 8px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        margin-bottom: 2rem;
+        opacity: 0;
+        animation: fadeInTestimonial 2s forwards;
+    }
+
+    @keyframes fadeInTestimonial {
+        from {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    .testimonial p {
+        font-style: italic;
+        font-size: 1.1rem;
+        margin-bottom: 1rem;
+    }
+
+    .testimonial span {
+        font-weight: bold;
+        color: #333;
+    }
+
+    /* Style for testimonial image */
+    .testimonial-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .testimonial img {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%; /* Circular image */
+        object-fit: cover;
+        margin-bottom: 15px;
+    }
+</style>
+
+
+ 
+
+        <section class="contact">
+    <h2>Contact Us</h2>
+    <form id="contactForm">
+        <input type="text" id="name" placeholder="Your Name" required>
+        <input type="email" id="email" placeholder="Your Email" required>
+        <button type="submit">Submit</button>
+    </form>
+</section>
+
+<script>
+    // Function to handle form submission and send email to WhatsApp
+    document.getElementById("contactForm").addEventListener("submit", function(event) {
+        event.preventDefault(); // Prevent default form submission
+        
+        var name = document.getElementById("name").value; // Get name value
+        var email = document.getElementById("email").value; // Get email value
+        
+        // Format the WhatsApp URL
+        var message = `Hello, I am ${name}. My email address is: ${email}`;
+        var phoneNumber = "09070705470"; // WhatsApp number
+        var whatsappURL = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+
+        // Open WhatsApp in a new tab or window
+        window.open(whatsappURL, "_blank");
+    });
+</script>
+    </main>
+
+    <footer>
+        <p>&copy; The Domestic by Chioma Jude 2025</p>
+<p>Designed By Adex Web</p>
+    </footer>
+
+</body>
+</html>
